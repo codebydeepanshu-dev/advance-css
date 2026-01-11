@@ -7,23 +7,39 @@
 html, body {
   height: 100%;
   width: 100%;
-  background-color: black;
-
+  overflow: hidden;
 }
 
-:root {
-  --x: 100px;
-  --y: 100px;
+/* VIDEO */
+.video-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
 }
 
-#box {
-  height: 100%;
+.video-bg video {
   width: 100%;
-  border: 1px solid white;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CSS VARIABLES */
+:root {
+  --x: 50%;
+  --y: 50%;
+}
+
+/* SPOTLIGHT LAYER */
+#box {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
 
   background: radial-gradient(
-    150px at var(--x) var(--y),
-    rgb(255, 255, 255),
-    rgb(0, 0, 0)
+    200px at var(--x) var(--y),
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.25) 35%,
+    rgba(0, 0, 0, 0.85) 70%
   );
 }
